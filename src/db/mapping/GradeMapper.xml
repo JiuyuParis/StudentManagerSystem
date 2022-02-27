@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="db.dao.GradeDao">
+	<!-- 
+	namespace对应此配置文件映射的包名+类名
+	id对应dao层方法名
+	parameterType:参数的数据类型
+	resultType:查询结果的数据类型
+	 -->
+	<!-- 查询年级信息列表 -->
+	<select id="selectAllGrade" resultType="db.bean.Grade">
+		select * from grade
+	</select>
+	
+	<!-- 删除年级信息 -->
+	<delete id="deleteGradeByGid">
+		delete from grade where gid=#{gid}
+	</delete>
+	<insert id="insertGrade" parameterType="db.bean.Grade">
+		insert into grade(gid,grade,stuCount) values(#{gid},#{grade},#{stuCount})
+	</insert>
+	
+	<!-- 修改年级信息 -->
+	<update id="updateGrade" parameterType="db.bean.Grade">
+		update grade set stuCount=#{stuCount} where gid=#{gid}
+	</update>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="db.dao.ProDao">
+	<!-- 
+	namespace对应此配置文件映射的包名+类名
+	id对应dao层方法名
+	parameterType:参数的数据类型
+	resultType:查询结果的数据类型
+	 -->
+	<!-- 查询专业信息列表 -->
+	<select id="selectAllPro" resultType="db.bean.Profession">
+		select * from profession
+	</select>
+	
+	<delete id="deleteProById">
+		delete from profession where pid=#{pid}
+	</delete>
+	
+	<insert id="insertPro" parameterType="db.bean.Profession">
+		insert into profession(pid,pName,count,createtime) values(#{pid},#{pName},#{count},#{createtime})
+	</insert>
+	
+	<update id="updatePro" parameterType="db.bean.Profession">
+		update profession set pName=#{pName},count=#{count} where pid=#{pid}
+	</update>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="db.dao.ClasstDao">
+	<!-- 
+	namespace对应此配置文件映射的包名+类名
+	id对应dao层方法名
+	parameterType:参数的数据类型
+	resultType:查询结果的数据类型
+	 -->
+	<!-- 查询班级信息列表 -->
+	<select id="selectAllClasst" resultType="db.bean.Classt">
+		select * from classt
+	</select>
+	
+	<!-- 删除班级信息 -->
+	<delete id="deleteClasstByClid">
+		delete from classt where clid=#{clid}
+	</delete>
+	
+	<!-- 插入班级信息 -->
+	<insert id="insertClasst"  parameterType="db.bean.Classt">
+		insert into classt(clid,classN,classNum,classType) values(#{clid},#{classN},#{classNum},#{classType})
+	</insert>
+	
+	<!-- 修改班级信息 -->
+	<update id="updateClasst"   parameterType="db.bean.Classt">
+		update classt set classNum=#{classNum},classType=#{classType} where clid=#{clid}
+	</update>
+</mapper>
