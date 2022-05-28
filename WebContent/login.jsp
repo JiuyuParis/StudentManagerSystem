@@ -52,7 +52,7 @@
 			<div class="inpBox">
 				<span>验证码：</span>
 				<input type="text" name="captcha" id="captcha" placeholder="请输入验证码" style="width:85px" />
-				<img src="${pageContext.request.contextPath}/captcha" style="width:85px" id="cap"/>
+				<img src="${pageContext.request.contextPath}/captcha" style="width:80px;vertical-align: middle" id="cap"/>
 			</div>
 			<div class="inpBox">
 				<!-- <input type="submit" value="登录" class="loginInput"/> -->
